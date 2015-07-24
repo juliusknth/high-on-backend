@@ -14,6 +14,9 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="http://www.highcharts.com/media/com_demo/highslide.css" />
 
+    <!-- Flag sprites service provided by Martijn Lafeber, https://github.com/lafeber/world-flags-sprite/blob/master/LICENSE -->
+    <link rel="stylesheet" type="text/css" href="http://cloud.github.com/downloads/lafeber/world-flags-sprite/flags32.css" />
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8" async defer></script>
@@ -30,53 +33,85 @@
     
     <div class="container-fluid">
 
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <a class="navbar-brand" href="#">E-Bima Dashboard</a>
-        <ul class="nav navbar-nav">
-          <li class="active">
-            <a href="index.html">
-              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-              Orders
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="glyphicon glyphicon-plane" aria-hidden="true"></span>
-              Shipping
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
-              Payments
-            </a>
-          </li>
-          <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
-                Application 
-                <b class="caret"></b>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <!-- <img src="img/logo.png" class="img-responsive" alt="Image" height="20%"> -->
+                E-Bima Dashboard
               </a>
-              <ul class="dropdown-menu">                
-                <li><a href="#">Motor Vehicle Insurances</a></li>                
-                <li><a href="#">Health Insurances</a></li>
-                <li><a href="#">Life Insurances</a></li>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="index.html">
+                      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                      Orders
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="glyphicon glyphicon-plane" aria-hidden="true"></span>
+                      Shipping
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+                      Payments
+                    </a>
+                  </li>
+                  <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                        Application 
+                        <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">                
+                        <li><a href="#">Motor Vehicle Insurances</a></li>                
+                        <li><a href="#">Health Insurances</a></li>
+                        <li><a href="#">Life Insurances</a></li>
+                      </ul>
+                    </li>
+                  <li>
+                    <a href="#">
+                      <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                      Claims
+                    </a>
+                  </li>
+                  <li>
+                    <a href="watchdog.html">
+                      <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                      Watchdog
+                    </a>
+                  </li>
+              </ul>             
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">JuliusKnth <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                            logout
+                        </a>
+                    </li>                    
+                  </ul>
+                </li>
               </ul>
-            </li>
-          <li>
-            <a href="#">
-              <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-              Claims
-            </a>
-          </li>
-          <li>
-            <a href="watchdog.html">
-              <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-              Watchdog
-            </a>
-          </li>
-        </ul>
-      </nav>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
 
       <h4>
         Orders
@@ -85,6 +120,19 @@
           700 Orders
         </span>
       </h4>
+
+      <ol class="breadcrumb">
+        <li>
+            <a href="#">Applications</a>
+        </li>
+        <li>
+            <a href="#">Orders</a>
+        </li>
+        <li>
+            <a href="#">Shippings</a>
+        </li>
+        <li class="active">Order</li>
+    </ol>      
 
       <small>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -97,7 +145,7 @@
 
       <hr>
 
-      <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+      <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs" id="my-example-affix">
         <ul id="myTabs" class="nav nav-tabs" role="tablist">
           <li role="presentation"  class="active">
             <a href="#new-orders" id="new-orders-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="false">
@@ -1608,26 +1656,16 @@
 
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab"> 
-            
+          <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">       
+
             <div class="row">
-                <div class="col-md-6">
-
-                  <h4>
-                    Lorem ipsum
-                  </h4>          
-                  <div id="container1"></div>
-                
-                </div>       
-                <div class="col-md-6">
-
+                <div class="col-md-12">
                     <h4>
                         Lorem ipsum
-                      </h4>
-                  <div id="container2"></div>
-
-                </div> 
-              </div>
+                    </h4>
+                    <div id="container17"></div>
+                </div>
+            </div>                  
 
              <div class="row">
                 <div class="col-md-6">
@@ -1871,7 +1909,7 @@
                 </div>
 
                 </div> 
-              </div>  
+              </div>                
 
           </div>
 
@@ -1891,14 +1929,14 @@
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="js/index.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="http://code.highcharts.com/stock/highstock.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/data.js"></script>
-    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>    
     <script src="http://code.highcharts.com/modules/exporting.js"></script> 
-
-
-    <!-- Additional files for the Highslide popup effect -->
+    <script src="http://code.highcharts.com/maps/modules/map.js"></script>
+    <script src="http://code.highcharts.com/mapdata/custom/world.js"></script>    
     <script type="text/javascript" src="http://www.highcharts.com/media/com_demo/highslide-full.min.js"></script>
     <script type="text/javascript" src="http://www.highcharts.com/media/com_demo/highslide.config.js" charset="utf-8"></script>
   </body>
